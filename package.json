@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "ArugaZ",
+  "author": "SnoopyGans",
   "repository": {
     "type": "git",
     "url": "https://github.com/SnoopyGans/botwa.git"
