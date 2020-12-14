@@ -26,7 +26,6 @@
 </details>
 
 ini semua gratis, jangan pelit ⭐️ ya :D
-<p align="center"><a href="https://arugaz.herokuapp.com/" target="_blank">My Rest APIs</a>.</p>
 <p align="center"><a href="https://wa.me/447520622174?text=%23menu" target="_blank">My Whatsapp BOT</a>.</p>
 </div>
 
