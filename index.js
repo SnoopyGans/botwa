@@ -6,36 +6,36 @@ const HandleMsg = require('./HandleMsg')
 
 const start = (aruga = new Client()) => {
     console.log(color(figlet.textSync('----------------', { horizontalLayout: 'default' })))
-    console.log(color(figlet.textSync('ARUGA BOT', { font: 'Ghost', horizontalLayout: 'default' })))
+    console.log(color(figlet.textSync('Snoopy BOT', { font: 'Ghost', horizontalLayout: 'default' })))
     console.log(color(figlet.textSync('----------------', { horizontalLayout: 'default' })))
-    console.log(color('[DEV]'), color('ArugaZ', 'yellow'))
+    console.log(color('[DEV]'), color('SnoopyGans', 'yellow'))
     console.log(color('[~>>]'), color('BOT Started!', 'green'))
 
     // Mempertahankan sesi agar tetap nyala
     aruga.onStateChanged((state) => {
         console.log(color('[~>>]', 'red'), state)
-        if (state === 'CONFLICT' || state === 'UNLAUNCHED') aruga.forceRefocus()
+        if (state === 'CONFLICT' || state === 'UNLAUNCHED') Snoopy.forceRefocus()
     })
 
     // ketika bot diinvite ke dalam group
-    aruga.onAddedToGroup(async (chat) => {
-	const groups = await aruga.getAllGroups()
+    Snoopy.onAddedToGroup(async (chat) => {
+	const groups = await Snoopy.getAllGroups()
 	// kondisi ketika batas group bot telah tercapai,ubah di file settings/setting.json
 	if (groups.length > groupLimit) {
-	await aruga.sendText(chat.id, `Sorry, the group on this Bot is full\nMax Group is: ${groupLimit}`).then(() => {
-	      aruga.leaveGroup(chat.id)
-	      aruga.deleteChat(chat.id)
+	await Snoopy.sendText(chat.id, `Sorry, the group on this Bot is full\nMax Group is: ${groupLimit}`).then(() => {
+	      Snoopy.leaveGroup(chat.id)
+	      Snoopy.deleteChat(chat.id)
 	  }) 
 	} else {
 	// kondisi ketika batas member group belum tercapai, ubah di file settings/setting.json
 	    if (chat.groupMetadata.participants.length < memberLimit) {
-	    await aruga.sendText(chat.id, `Sorry, Bot comes out if the group members do not exceed ${memberLimit} people`).then(() => {
-	      aruga.leaveGroup(chat.id)
-	      aruga.deleteChat(chat.id)
+	    await Snoopy.sendText(chat.id, `Sorry, Bot comes out if the group members do not exceed ${memberLimit} people`).then(() => {
+	      Snoopy.leaveGroup(chat.id)
+	      Snoopy.deleteChat(chat.id)
 	    })
 	    } else {
-        await aruga.simulateTyping(chat.id, true).then(async () => {
-          await aruga.sendText(chat.id, `Hai minna~, Im Aruga Bot. To find out the commands on this bot type ${prefix}menu`)
+        await Snoopy.simulateTyping(chat.id, true).then(async () => {
+          await Snoopy.sendText(chat.id, `Hai minna~, Im Aruga Bot. To find out the commands on this bot type ${prefix}menu`)
         })
 	    }
 	}
